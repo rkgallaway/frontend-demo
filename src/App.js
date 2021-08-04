@@ -20,7 +20,7 @@ class App extends React.Component {
 getData = async (e) => {
   e.preventDefault();
   try {let species = e.target.species.value
-  let petInfo = await axios.get(`http://localhost:3001/pets?species=${species}`);
+  let petInfo = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/pets?species=${species}`);
 
   console.log(petInfo);
 
@@ -38,7 +38,7 @@ getPictures = async (e) => {
   console.log(e.target.imageType.value);
   let searchQuery = e.target.imageType.value;
 
-  let pictureResults = await axios.get(`http://localhost:3001/pictures?searchQuery=${searchQuery}`);
+  let pictureResults = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/pictures?searchQuery=${searchQuery}`);
 
   console.log(pictureResults.data)
   this.setState({
